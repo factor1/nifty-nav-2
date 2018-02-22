@@ -1,0 +1,32 @@
+{
+  "name": "nifty-nav-2",
+  "version": "0.0.1",
+  "description": "A JavaScript menu framework",
+  "main": "src/niftyNav2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/factor1/nifty-nav-2.git"
+  },
+  "keywords": [
+    "Menu",
+    "Mobile",
+    "Navigation",
+    "Nav",
+    "Hamburger",
+    "Panel"
+  ],
+  "author": "Eric Stout <factor1studios.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/factor1/nifty-nav-2/issues"
+  },
+  "homepage": "https://github.com/factor1/nifty-nav-2#readme",
+  "devDependencies": {
+    "autoprefixer": "^8.0.0",
+    "webpack": "^3.11.0"
+  }
+}
