@@ -5,7 +5,7 @@
   * https://github.com/factor1/nifty-nav-2
   */
 
-const init = () => {
+const init = function() {
   console.log('Hello, World');
 }
 

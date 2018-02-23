@@ -3,7 +3,7 @@ const autoprefixer = require('autoprefixer');
 const path = require('path');
 
 module.exports = {
-  entry: './src/js/niftyNav2.js',
+  entry: ['babel-polyfill', './src/js/niftyNav2.js'],
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
