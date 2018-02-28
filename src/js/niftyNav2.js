@@ -45,7 +45,7 @@ const buildIcons = function(target, options) {
 const init = function(settings) {
   // quit if browser not supported - TODO: test this actually works.
   if( browserNotSupported ) {
-    return
+    return console.log('%c [Nifty Nav 2]: Browser not supported. Please upgrade your browser', 'color: #rgb(232, 141, 57)');
   }
 
   // get the defaults and user settings
