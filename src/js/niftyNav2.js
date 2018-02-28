@@ -3,7 +3,7 @@
   * A JavaScript menu framework.
   * Author: Eric Stout, Factor1 Studios
   * https://github.com/factor1/nifty-nav-2
-  */
+**/
 
 // Detect not supported browsers (<=IE9)
 const browserNotSupported = document.all && !window.atob;
@@ -45,7 +45,7 @@ const buildIcons = function(target, options) {
 const init = function(settings) {
   // quit if browser not supported - TODO: test this actually works.
   if( browserNotSupported ) {
-    return console.log('%c [Nifty Nav 2]: Browser not supported. Please upgrade your browser', 'color: #rgb(232, 141, 57)');
+    return console.log('%c [Nifty Nav 2]: Browser not supported. Please upgrade your browser.', 'color: #rgb(232, 141, 57)');
   }
 
   // get the defaults and user settings
