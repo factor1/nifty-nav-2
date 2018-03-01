@@ -1,9 +1,12 @@
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: ['babel-polyfill', './src/js/niftyNav2.js'],
+  entry: [
+    'babel-polyfill', './src/js/niftyNav2.js'
+  ],
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -13,15 +16,41 @@ module.exports = {
     libraryTarget: 'umd',
     sourceMapFilename: '[file].map'
   },
+  watchOptions: {
+    ignored: ['./node_modules', './dist']
+  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: true,
+                sourceMap: true
+              }
+            }, {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            }, {
+              loader: 'postcss-loader',
+            }
+          ]
+        })
       }
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    new ExtractTextPlugin('niftyNav2.css')
   ]
 }

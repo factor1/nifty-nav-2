@@ -23,3 +23,8 @@ h1, h2, h3, h4, h5, h6 {
   color: rgb(96, 223, 174);
   font-weight: normal;
 }
+
+div[data-nifty-target="niftyNav"] {
+  display: inline-block;
+  margin: 0 0 0 auto;
+}
