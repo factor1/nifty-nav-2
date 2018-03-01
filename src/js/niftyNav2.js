@@ -18,10 +18,11 @@ let options = {
   iconColor: '#fff', // default icon color
   iconColorActive: '#fff', // default active/open icon color
   menuText: false, // toggle MENU text next to icon
+  menuString: 'Menu', // text to appear when menuText is true
   targets: ['niftyNav'], // targets can be an array so you can have multiple instances at a time <div data-nifty-target="niftyNav"></div>
   panelOrigin: 'top',  // where the panel will animate or originate from
   panelPosition: 'absolute', // css position - absolute, relative, fixed, etc...
-  panelAnimation: 'slide-in', // type of panel animation (slide-in, bounce-in, off)
+  panelAnimation: 'slide-in', // type of panel animation (slide-in, bounce-in, fade, off)
   panelAnimationSpeed: 500 // speed of panel animation
 }
 
@@ -36,8 +37,22 @@ const handleTargetClick = function(e) {
  * Build Icon Structure
  */
 const buildIcons = function(target, options) {
-  const icon = `<button class="nifty-icon nifty-icon--${options.icon}"><span></span></button>`;
+  const icon = `
+    <button class="nifty-icon nifty-icon--${options.icon}">
+      <span></span>
+    </button>
+  `;
   target.innerHTML = icon;
+
+  // if option for iconColor has been changed
+  if( options.iconColor !== '#fff' ) {
+    target.querySelector('span').style.backgroundColor = options.iconColor;
+  }
+
+  // if option for iconColorActive has been changed
+  if( options.iconColor !== '#fff' ) {
+    target.querySelector('span').style.backgroundColor = options.iconColor;
+  }
 }
 
 /**
