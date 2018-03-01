@@ -5,6 +5,8 @@
   * https://github.com/factor1/nifty-nav-2
 **/
 
+import styles from '../scss/niftyNav2.scss';
+
 // Detect not supported browsers (<=IE9)
 const browserNotSupported = document.all && !window.atob;
 
@@ -27,15 +29,14 @@ let options = {
  * Handle click of target listener
  */
 const handleTargetClick = function(e) {
-  console.log('This was clicked');
-  console.log(e);
+  e.target.classList.toggle('nifty-active');
 }
 
 /**
  * Build Icon Structure
  */
 const buildIcons = function(target, options) {
-  const icon = `<button class="nifty-icon nifty-icon--${options.icon}">${options.icon}</button>`;
+  const icon = `<button class="nifty-icon nifty-icon--${options.icon}"><span></span></button>`;
   target.innerHTML = icon;
 }
 

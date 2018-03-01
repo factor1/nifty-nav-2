@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="https://cdn.rawgit.com/erwstout/ginger/2d64ea35/dist/ginger.min.css">
         <link rel="stylesheet" href="styles.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" rel="stylesheet">
+
+        <link rel="stylesheet" href="../dist/niftyNav2.css">
     </head>
     <body>
         <!--[if lte IE 9]>
@@ -22,7 +24,7 @@
               niftyNav2
             </h1>
           </div>
-          <div class="col-3">
+          <div class="col-3 text-right">
             <div data-nifty-target="niftyNav"></div>
           </div>
         </div>
@@ -30,7 +32,9 @@
 
       <script src="../dist/niftyNav2.js"></script>
       <script>
-        niftyNav2.init();
+        niftyNav2.init({
+          icon: 'square'
+        });
       </script>
     </body>
 </html>
