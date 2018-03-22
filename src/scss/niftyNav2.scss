@@ -136,7 +136,8 @@
     }
   }
 
-  // Animation Options
+  // -- Animation Options-- //
+  //fade
   &--fade {
     &.nifty-panel--closed {
       opacity: 0;
@@ -148,6 +149,11 @@
       visibility: visible;
       max-height: 100vh;
     }
+  }
+
+  // off
+  &--off {
+    transition: none;
   }
 
 }
@@ -179,20 +185,7 @@
   &--disabled {
     background-color: transparent;
   }
-}
-
-// keyframes for now
-@keyframes bounceIn {
-  from {
-    max-height: 0;
-  }
-  80% {
-    max-height: 100vh;
-    transform: scaleY(1.2);
-    transform-origin: top;
-  }
-  to {
-    max-height: 100vh;
-    transform: scaleY(1);
+  &--animation-off {
+    transition: none;
   }
 }

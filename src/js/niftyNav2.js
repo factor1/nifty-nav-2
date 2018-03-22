@@ -86,6 +86,8 @@ const buildPanel = function(target, options) {
   // handle animation options
   if( options.panelAnimation === 'fade' ) {
     panel.classList.add('nifty-panel--fade');
+  } else if ( options.panelAnimation === 'off') {
+    panel.classList.add('nifty-panel--off');
   }
 
 }
@@ -111,6 +113,11 @@ const addMask = () => {
   const mask = document.createElement('div');
   mask.setAttribute('id', 'niftyMask');
   mask.setAttribute('class', 'nifty-mask');
+
+  // if animations are disabled
+  if( options.panelAnimation === 'off' ) {
+    mask.classList.add('nifty-mask--animation-off');
+  }
 
   // add click listener
   mask.addEventListener('click', ()=> {
