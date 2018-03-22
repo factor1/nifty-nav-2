@@ -22,7 +22,7 @@ let options = {
   panelTopOffset: 0, // top offset for the panel
   panelPosition: 'absolute', // css position - absolute, relative, fixed, etc...
   panelHeight: 'auto', // panel height
-  panelAnimation: 'slide-in', // type of panel animation (slide-in, bounce-in, fade, off)
+  panelAnimation: 'slide-in', // type of panel animation (slide-in, fade, off)
   panelAnimationSpeed: 500, // speed of panel animation
   showMask: true // if there should be a mask covering page content
 }
@@ -82,6 +82,11 @@ const buildPanel = function(target, options) {
 
   // Set Panel State to Closed
   panel.classList.add(`nifty-panel--closed`);
+
+  // handle animation options
+  if( options.panelAnimation === 'fade' ) {
+    panel.classList.add('nifty-panel--fade');
+  }
 
 }
 
