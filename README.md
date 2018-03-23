@@ -4,6 +4,7 @@
 ![npm](https://img.shields.io/npm/v/nifty-nav-2.svg)
 ![GitHub issues](https://img.shields.io/github/issues-raw/factor1/nifty-nav-2.svg)
 ![license](https://img.shields.io/github/license/factor1/nifty-nav-2.svg)
+![David Dependencies](https://david-dm.org/factor1/nifty-nav-2.svg)
 
 
 
