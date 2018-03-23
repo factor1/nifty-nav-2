@@ -9,29 +9,22 @@
 
 // icon placeholder
 %burger {
-  span, span:before, span:after {
+  span {
     display: block;
     position: absolute;
-    margin: 0 0 0 -20px;
-    left: 50%;
+    margin: 0;
+    left: calc(50% - 20px);
     height: 3px;
     width: 40px;
-    background-color: $iconColor;
     border-radius: 1px;
-    transition: all 100ms ease;
+    transition: all 200ms ease-in-out;
     cursor: default;
-  }
-  span:before {
-    content: '';
-    top: -10px;
-    transition: all 300ms ease;
-    background-color: inherit;
-  }
-  span:after {
-    content: '';
-    bottom: -10px;
-    transition: all 300ms ease;
-    background-color: inherit;
+    &:nth-child(1) {
+      top: 18px;
+    }
+    &:nth-child(3) {
+      bottom: 18px;
+    }
   }
 }
 
@@ -74,18 +67,9 @@
   **/
   &--rounded {
     @extend  %burger;
-    span, span:before, span:after {
+    span {
       height: 5px;
       border-radius: 10px;
-    }
-    span:before {
-      content: '';
-      top: -12px;
-    }
-    span:after {
-      content: '';
-      bottom: -12px;
-      top: 12px;
     }
   }
 
@@ -94,18 +78,16 @@
   **/
   &.nifty-active {
     span {
-      background-color: transparent !important;
-      &:before {
-        top: 0;
-        transition: all 300ms ease-out;
+      &:nth-child(1) {
+        top: 29px;
         transform: rotate(45deg);
-        background-color: $iconColor;
       }
-      &:after {
-        top: 0;
-        transition: all 300ms ease-out;
+      &:nth-child(2) {
+        background-color: transparent !important;
+      }
+      &:nth-child(3) {
+        bottom: 28px;
         transform: rotate(-45deg);
-        background-color: $iconColor;
       }
     }
   }
@@ -131,7 +113,6 @@
     margin: 0 45px 0 0;
     font-size: 16px;
     text-transform: uppercase;
-    color: $menuTextColor;
   }
 
 }
@@ -145,7 +126,6 @@
   position: absolute;
   top: 0;
   width: 100%;
-  background-color: $panelColor;
   overflow: hidden;
   z-index: 999;
 

@@ -15,9 +15,9 @@ import styles from '../scss/niftyNav2.scss';
 let options = {
   icon: 'square', // icon style (square, rounded)
   iconColor: '#fff', // default icon color
-  iconColorActive: '#fff', // default active/open icon color
   showMenuText: false, // toggle text next to icon
   menuText: 'Menu', // text to appear when showMenuText is true
+  menuTextColor: '#fff', // menu text color
   targets: ['niftyNav'], // targets can be an array so you can have multiple instances at a time <div data-nifty-target="niftyNav"></div>
   panelOrigin: 'top',  // where the panel will animate or originate from (top/left/right)
   panelTopOffset: 0, // top offset for the panel
@@ -25,7 +25,8 @@ let options = {
   panelHeight: 'auto', // panel height
   panelWidth: '100%', // panel width
   panelAnimation: 'slide-in', // type of panel animation (slide-in, fade-in, off)
-  panelAnimationSpeed: 500, // speed of panel animation
+  panelAnimationSpeed: 500, // speed of panel animation,
+  panelColor: '#2d2d2d', // panel color
   showMask: true, // if there should be a mask covering page content,
   maskAnimationSpeed: 600 // speed of the mask animation
 }
@@ -39,7 +40,9 @@ const buildIcons = (target, options) => {
 
   const icon = `
     <button class="nifty-icon nifty-icon--${options.icon}">
-      <span></span>
+      <span style="background-color: ${options.iconColor}"></span>
+      <span style="background-color: ${options.iconColor}"></span>
+      <span style="background-color: ${options.iconColor}"></span>
     </button>
   `;
   target.innerHTML = icon;
@@ -47,7 +50,7 @@ const buildIcons = (target, options) => {
   // if we are showing menu text
   if( options.showMenuText === true ) {
     target.querySelector('.nifty-icon').classList.add('nifty-icon--has-text');
-    target.querySelector('.nifty-icon').innerHTML = `<div class="nifty-icon--text">${options.menuText}</div><span></span>`;
+    target.querySelector('.nifty-icon').innerHTML = `<div class="nifty-icon--text" style="color: ${options.menuTextColor};">${options.menuText}</div><div><span style="background-color: ${options.iconColor}"></span><span style="background-color: ${options.iconColor}"></span><span style="background-color: ${options.iconColor}"></span></div>`;
   }
 
 }
@@ -74,6 +77,9 @@ const buildPanel = (target, options) => {
   if( options.panelWidth !== '100%' ) {
     panel.style.width = options.panelWidth;
   }
+
+  // Panel Color
+  panel.style.backgroundColor = options.panelColor;
 
   // Panel Position Setting
   panel.style.position = options.panelPosition;
@@ -113,6 +119,7 @@ const toggleMask = () => {
   const mask = document.getElementById('niftyMask');
 
   if( mask.classList.contains('nifty-mask--active') ) {
+
     mask.classList.remove('nifty-mask--active');
     mask.classList.add('nifty-mask--closing');
 
@@ -180,6 +187,7 @@ const addMask = () => {
 **/
 const handleTargetClick = (e) => {
   const panelId = e.target.parentElement.getAttribute('data-nifty-target');
+
   e.target.classList.toggle('nifty-active');
 
   togglePanel(panelId);
