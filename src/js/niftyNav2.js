@@ -35,7 +35,7 @@ let options = {
  * Build Icon Structure
  *
 **/
-const buildIcons = function(target, options) {
+const buildIcons = (target, options) => {
 
   const icon = `
     <button class="nifty-icon nifty-icon--${options.icon}">
@@ -57,7 +57,7 @@ const buildIcons = function(target, options) {
  * Build Panel
  *
 **/
-const buildPanel = function(target, options) {
+const buildPanel = (target, options) => {
   // get the panel id from the data attr
   const panelId = target.getAttribute('data-nifty-target');
   const panel = document.getElementById(panelId);
@@ -74,6 +74,9 @@ const buildPanel = function(target, options) {
   if( options.panelWidth !== '100%' ) {
     panel.style.width = options.panelWidth;
   }
+
+  // Panel Position Setting
+  panel.style.position = options.panelPosition;
 
   // Panel Animation Speed Setting
   panel.style.transition = `all ${options.panelAnimationSpeed}ms ease-in-out`;
@@ -95,7 +98,7 @@ const buildPanel = function(target, options) {
  * Open/Close Panel
  *
 **/
-const togglePanel = function(panelId) {
+const togglePanel = (panelId) => {
   const panel = document.getElementById(panelId);
 
   panel.classList.toggle('nifty-panel--open');
@@ -175,7 +178,7 @@ const addMask = () => {
  * Handle click(s) of target listener
  *
 **/
-const handleTargetClick = function(e) {
+const handleTargetClick = (e) => {
   const panelId = e.target.parentElement.getAttribute('data-nifty-target');
   e.target.classList.toggle('nifty-active');
 
@@ -188,7 +191,7 @@ const handleTargetClick = function(e) {
  * Initialization of niftyNav2
  *
 **/
-const init = function(settings) {
+const init = (settings) => {
   // quit if browser not supported - TODO: test this actually works.
   // Detect not supported browsers (<=IE9)
   const browserNotSupported = document.all && !window.atob;

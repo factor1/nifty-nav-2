@@ -50,7 +50,7 @@ module.exports = {
     ]
   },
   plugins: [
-    //new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
     new ExtractTextPlugin('niftyNav2.css')
   ]
 }
