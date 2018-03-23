@@ -4,7 +4,7 @@
   "description": "A JavaScript menu framework",
   "main": "src/niftyNav2.js",
   "scripts": {
-    "test": "webpack build",
+    "test": "npm run build",
     "build": "npm run lint && webpack",
     "watch": "webpack --watch",
     "lint": "./node_modules/.bin/eslint ./src/js/*.js",
