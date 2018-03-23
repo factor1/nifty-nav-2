@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
-    'babel-polyfill', './src/js/niftyNav2.js'
+    './src/js/niftyNav2.js'
   ],
   devtool: 'source-map',
   output: {
@@ -50,7 +50,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
+    //new webpack.optimize.UglifyJsPlugin(),
     new ExtractTextPlugin('niftyNav2.css')
   ]
 }

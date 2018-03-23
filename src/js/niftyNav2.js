@@ -5,6 +5,7 @@
   * https://github.com/factor1/nifty-nav-2
 **/
 
+// eslint-disable-next-line
 import styles from '../scss/niftyNav2.scss';
 
 
@@ -22,22 +23,11 @@ let options = {
   panelTopOffset: 0, // top offset for the panel
   panelPosition: 'absolute', // css position - absolute, relative, fixed, etc...
   panelHeight: 'auto', // panel height
-  panelAnimation: 'slide-in', // type of panel animation (slide-in, fade, off)
+  panelWidth: '100%', // panel width
+  panelAnimation: 'slide-in', // type of panel animation (slide-in, fade-in, off)
   panelAnimationSpeed: 500, // speed of panel animation
-  showMask: true // if there should be a mask covering page content
-}
-
-/**
- *
- * Handle click(s) of target listener
- *
-**/
-const handleTargetClick = function(e) {
-  const panelId = e.target.parentElement.getAttribute('data-nifty-target');
-  e.target.classList.toggle('nifty-active');
-
-  togglePanel(panelId);
-  toggleMask();
+  showMask: true, // if there should be a mask covering page content,
+  maskAnimationSpeed: 600 // speed of the mask animation
 }
 
 /**
@@ -80,12 +70,20 @@ const buildPanel = function(target, options) {
   // Panel Origin Setting
   panel.classList.add(`nifty-panel--${options.panelOrigin}`);
 
+  // Panel Width Setting
+  if( options.panelWidth !== '100%' ) {
+    panel.style.width = options.panelWidth;
+  }
+
+  // Panel Animation Speed Setting
+  panel.style.transition = `all ${options.panelAnimationSpeed}ms ease-in-out`;
+
   // Set Panel State to Closed
-  panel.classList.add(`nifty-panel--closed`);
+  panel.classList.add('nifty-panel--closed');
 
   // handle animation options
-  if( options.panelAnimation === 'fade' ) {
-    panel.classList.add('nifty-panel--fade');
+  if( options.panelAnimation === 'fade-in' ) {
+    panel.classList.add('nifty-panel--fade-in');
   } else if ( options.panelAnimation === 'off') {
     panel.classList.add('nifty-panel--off');
   }
@@ -105,6 +103,28 @@ const togglePanel = function(panelId) {
 
 /**
  *
+ * Toggle Mask
+ *
+**/
+const toggleMask = () => {
+  const mask = document.getElementById('niftyMask');
+
+  if( mask.classList.contains('nifty-mask--active') ) {
+    mask.classList.remove('nifty-mask--active');
+    mask.classList.add('nifty-mask--closing');
+
+    setTimeout( () => {
+      mask.classList.remove('nifty-mask--closing')
+    }, 500);
+
+  } else {
+    mask.classList.toggle('nifty-mask--active');
+  }
+
+}
+
+/**
+ *
  * Add Mask to DOM
  *
 **/
@@ -114,13 +134,21 @@ const addMask = () => {
   mask.setAttribute('id', 'niftyMask');
   mask.setAttribute('class', 'nifty-mask');
 
-  // if animations are disabled
+  // if animations are disabled set transition to none
   if( options.panelAnimation === 'off' ) {
-    mask.classList.add('nifty-mask--animation-off');
+    mask.style.transition = 'none';
+  } else {
+    // set the transition for the mask
+    mask.style.transition = `opacity ${options.maskAnimationSpeed}ms ease-in-out`;
+  }
+
+  // showMask setting
+  if( !options.showMask ) {
+    mask.style.opacity = 0;
   }
 
   // add click listener
-  mask.addEventListener('click', ()=> {
+  mask.addEventListener('click', () => {
     toggleMask();
 
     // shut down all open nifty nav panels
@@ -144,24 +172,15 @@ const addMask = () => {
 
 /**
  *
- * Toggle Mask
+ * Handle click(s) of target listener
  *
 **/
-const toggleMask = () => {
-  const mask = document.getElementById('niftyMask');
+const handleTargetClick = function(e) {
+  const panelId = e.target.parentElement.getAttribute('data-nifty-target');
+  e.target.classList.toggle('nifty-active');
 
-  if( mask.classList.contains('nifty-mask--active') ) {
-    mask.classList.remove('nifty-mask--active');
-    mask.classList.add('nifty-mask--closing');
-
-    setTimeout(()=> {
-      mask.classList.remove('nifty-mask--closing')
-    }, 500);
-
-  } else {
-    mask.classList.toggle('nifty-mask--active');
-  }
-
+  togglePanel(panelId);
+  toggleMask();
 }
 
 /**
@@ -175,7 +194,7 @@ const init = function(settings) {
   const browserNotSupported = document.all && !window.atob;
 
   if( browserNotSupported ) {
-    return console.log('%c [Nifty Nav 2]: Browser not supported. Please upgrade your browser.', 'color: #rgb(232, 141, 57)');
+    return console.error('%c [Nifty Nav 2]: Browser not supported. Please upgrade your browser.', 'color: #rgb(232, 141, 57)');
   }
 
   // get the defaults and user settings
