@@ -27,7 +27,8 @@ yarn add nifty-nav-2
 ---
 #### Styles
 Import the Nifty Nav 2 css, sass, or ensure it is included in your build. The following
-is using scss to import from `node_modules`.
+is using scss to import from `node_modules`. Alternatively, you could copy `niftyNav2.css`
+from `node_modules` to your project.
 
 ```scss
 // include nifty nav 2 styles
@@ -36,7 +37,8 @@ is using scss to import from `node_modules`.
 
 #### JavaScript
 How you include the Nifty Nav 2 JavaScript library is up to you and the architecture
-of your project.
+of your project. Nifty Nav 2 is available as a UMD module so it can be used a
+AMD, Global, Node, or ES6 module.
 
 ##### Simple
 Copy the `niftyNav2.js` file in `nifty-nav-2/dist` to your project directory and include
@@ -45,8 +47,92 @@ in your HTML.
 ```html
 <html>
   <body>
-    ... content ...
+    <!-- Your HTML Content -->
     <script src="path_to_your_assets/js/niftyNav2.js"></script>
   </body>
 </html>
 ```
+
+##### Using Gulp
+A Gulp implementation that concatenates JS files may look something like this.
+
+```js
+var concatFiles = [
+  './node_modules/nifty-nav-2/dist/niftyNav2.js', // adds niftyNav2.js to be concatenated
+  './assets/js/*.js', // grabs all js files from our assets/js folder
+  '!./assets/js/*.min.js', // ignore minified files
+]
+
+// Concatenate & Minify JavaScript
+gulp.task('scripts', ['lint'], function() {
+  return gulp.src( concatFiles )
+    .pipe(concat( 'all.js' ))
+    .pipe(gulp.dest( './assets/js/' ))
+    .pipe(rename('all.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest( './assets/js/' ))
+});
+```
+
+##### ES6 Module
+```js
+import niftyNav2 from 'nifty-nav-2';
+```
+
+### Usage
+---
+#### Adding the Trigger
+Place the trigger or "hamburger". You can place this wherever you want it to appear
+in the DOM.
+
+```HTML
+<div data-nifty-target="niftyNav"></div>
+```
+
+Your element must have a `data-nifty-target` attribute with a unique name. Here,
+we are simply calling it `niftyNav` but it can be anything you wish.
+
+#### Adding the Panel
+Add the panel that will be opened on click.
+
+```HTML
+<div id="niftyNav">
+  <!--Panel Contents -->
+</div>
+```
+
+#### Initialization
+Initialize Nifty Nav 2 via JavaScript. The following is an example with options
+for `iconColor` and `panelColor`.
+
+```js
+<script>
+  niftyNav2.init({
+    iconColor: 'rgb(123, 249, 158)',
+    panelColor: 'rgb(123, 249, 158)',
+  });
+</script>
+```
+
+## Settings
+There are plenty settings that can be used to customize Nifty Nav 2.
+
+| Setting | Description | Accepts | Default |
+|---------|-------------|---------|---------|
+| `targets` | Targets to create/use Nifty Nav 2 (from `data-nifty-target`) | **array** | `['niftyNav']`
+| `icon`    | Icon style to be used | **string** - square, rounded | `square` |
+| `iconColor` | Color to be applied to the icon | **string** | `#fff` |
+| `showMenuText` | Show or hide text next to the icon | **boolean** | `false` |
+| `menuText` | Text to appear when `showMenuText` is `true` | **string** | `Menu` |
+| `menuTextColor` | Color to be applied to `menuText` | **string ** | `#fff` |
+| `panelOrigin` | Placement of where the Nifty Nav 2 panel will animate from | **string** - top, left, right | `top` |
+| `panelTopOffset` | Top offset for the panel | **integer** | `0` |
+| `panelPosition` | CSS positioning for the panel | **string** | `absolute` |
+| `panelHeight` | Height to be applied to the panel | **string** | `auto` |
+| `panelWidth` | Width to be applied to the panel | **string** | `100%` |
+| `panelAnimation` | Type of animation for the panel | **string** - slide-in, fade-in, off | `slide-in` |
+| `panelAnimationSpeed` | Speed of panel animation | **integer** | `500` |
+| `panelColor` | Color to be applied to the background of the panel | **string** | `#2d2d2d` |
+| `showMask` | Show or hide the mask/overlay | **boolean** | `true` |
+| `maskAnimationSpeed` | Speed at which the mask/overlay animates in | **integer** | `600` |
+| `maskColor` | Color to be applied to the mask/overlay | **string** | `rgba(0,0,0,0.5)` |

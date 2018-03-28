@@ -32,7 +32,7 @@
     </div>
   </header>
 
-  <div id="niftyNav" class="nifty-panel">
+  <div id="niftyNav">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -114,19 +114,21 @@
   <script src="../dist/niftyNav2.js"></script>
   <script>
     niftyNav2.init({
-      showMenuText: false,
-      menuText: 'OPTIONS',
-      menuTextColor: '#ff0000',
+      showMenuText: true,
+      menuText: 'Menu',
+      menuTextColor: 'green',
       icon: 'square',
       iconColor: '#ff0000',
       panelTopOffset: 85,
       panelAnimation: 'slide-in',
       panelAnimationSpeed: 500,
-      panelOrigin: 'top',
+      panelOrigin: 'left',
       panelColor: 'rgb(123, 249, 158)',
+      panelWidth: '300px',
       maskAnimationSpeed: 600,
       showMask: true,
-      panelPosition: 'fixed'
+      panelPosition: 'absolute',
+      maskColor: 'red'
     });
   </script>
 </body>

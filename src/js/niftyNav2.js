@@ -28,7 +28,8 @@ let options = {
   panelAnimationSpeed: 500, // speed of panel animation,
   panelColor: '#2d2d2d', // panel color
   showMask: true, // if there should be a mask covering page content,
-  maskAnimationSpeed: 600 // speed of the mask animation
+  maskAnimationSpeed: 600, // speed of the mask animation
+  maskColor: 'rgba(0,0,0,0.5)'
 }
 
 /**
@@ -64,6 +65,9 @@ const buildPanel = (target, options) => {
   // get the panel id from the data attr
   const panelId = target.getAttribute('data-nifty-target');
   const panel = document.getElementById(panelId);
+
+  // add nifty-panel class automatically
+  panel.classList.add('nifty-panel');
 
   // Panel Top Offset Setting
   if( options.panelTopOffset !== 0 ) {
@@ -143,6 +147,7 @@ const addMask = () => {
   const mask = document.createElement('div');
   mask.setAttribute('id', 'niftyMask');
   mask.setAttribute('class', 'nifty-mask');
+  mask.style = `background: ${options.maskColor}`;
 
   // if animations are disabled set transition to none
   if( options.panelAnimation === 'off' ) {
