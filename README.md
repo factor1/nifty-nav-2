@@ -138,6 +138,23 @@ There are plenty settings that can be used to customize Nifty Nav 2.
 | `maskAnimationSpeed` | Speed at which the mask/overlay animates in | **integer** | `600` |
 | `maskColor` | Color to be applied to the mask/overlay | **string** | `rgba(0,0,0,0.5)` |
 
+## 🌎 Browser Support
+Current browser support as of **v0.1.0**.
+
+| Browser | Support | Notes |
+|---------|:-------:|-------|
+| Edge 16+ | ✅ |       |
+| Edge <= 15 | ❌ | [Issue #2](https://github.com/factor1/nifty-nav-2/issues/2) |
+| IE <= 11 | ❌ | [Issue #2](https://github.com/factor1/nifty-nav-2/issues/2) |
+| Firefox 53+ | ✅ |       |
+| Firefox 52/51  | ⚠️ | [Issue #3](https://github.com/factor1/nifty-nav-2/issues/3) |
+| Chrome 51+ | ✅ |   |
+| Safari 11 | ✅ |    |
+| Safari 10.1 | ⚠️ | [Issue #3](https://github.com/factor1/nifty-nav-2/issues/3), [Issue #4](https://github.com/factor1/nifty-nav-2/issues/4) |
+| Safari 9.1 | ❌ | [Issue #2](https://github.com/factor1/nifty-nav-2/issues/2) |
+| Mobile Safari iOS 10 | Issue #3](https://github.com/factor1/nifty-nav-2/issues/3), [Issue #4](https://github.com/factor1/nifty-nav-2/issues/4) |
+
+
 ## ⚠️ Issues & Contributions
 Feel free to open an issue or a pull request if you find any issues or enhancements.
 
