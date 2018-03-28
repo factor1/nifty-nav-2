@@ -9,7 +9,7 @@
 A customizable JavaScript menu framework for modern browsers made easy.
 
 ## Getting Started
-### Installation
+### 🖥 Installation
 ---
 Add Nifty Nav 2 to your project using your favorite package manager.
 
@@ -23,10 +23,10 @@ npm install nifty-nav-2 --save
 yarn add nifty-nav-2
 ```
 
-### Including in your project
+###  📂 Including in your project
 ---
 #### Styles
-Import the Nifty Nav 2 css, sass, or ensure it is included in your build. The following
+Import the Nifty Nav 2 css or scss, or ensure it is included in your build. The following
 is using scss to import from `node_modules`. Alternatively, you could copy `niftyNav2.css`
 from `node_modules` to your project.
 
@@ -37,7 +37,7 @@ from `node_modules` to your project.
 
 #### JavaScript
 How you include the Nifty Nav 2 JavaScript library is up to you and the architecture
-of your project. Nifty Nav 2 is available as a UMD module so it can be used a
+of your project. Nifty Nav 2 is available as a UMD module so it can be used as a
 AMD, Global, Node, or ES6 module.
 
 ##### Simple
@@ -79,7 +79,7 @@ gulp.task('scripts', ['lint'], function() {
 import niftyNav2 from 'nifty-nav-2';
 ```
 
-### Usage
+### 🛠 Usage
 ---
 #### Adding the Trigger
 Place the trigger or "hamburger". You can place this wherever you want it to appear
@@ -90,10 +90,11 @@ in the DOM.
 ```
 
 Your element must have a `data-nifty-target` attribute with a unique name. Here,
-we are simply calling it `niftyNav` but it can be anything you wish.
+we are simply calling it `niftyNav` but it can be anything you wish. If changed from
+the default `niftyNav` be sure to pass that via settings when initializing.
 
 #### Adding the Panel
-Add the panel that will be opened on click.
+Add the panel that will be opened on click. The ID should match the value of `data-nifty-target`.
 
 ```HTML
 <div id="niftyNav">
@@ -102,7 +103,7 @@ Add the panel that will be opened on click.
 ```
 
 #### Initialization
-Initialize Nifty Nav 2 via JavaScript. The following is an example with options
+Initialize Nifty Nav 2 via JavaScript. The following is an example with settings
 for `iconColor` and `panelColor`.
 
 ```js
@@ -114,7 +115,7 @@ for `iconColor` and `panelColor`.
 </script>
 ```
 
-## Settings
+## ⚙️ Settings
 There are plenty settings that can be used to customize Nifty Nav 2.
 
 | Setting | Description | Accepts | Default |
@@ -136,3 +137,9 @@ There are plenty settings that can be used to customize Nifty Nav 2.
 | `showMask` | Show or hide the mask/overlay | **boolean** | `true` |
 | `maskAnimationSpeed` | Speed at which the mask/overlay animates in | **integer** | `600` |
 | `maskColor` | Color to be applied to the mask/overlay | **string** | `rgba(0,0,0,0.5)` |
+
+## ⚠️ Issues & Contributions
+Feel free to open an issue or a pull request if you find any issues or enhancements.
+
+## 📝 Changelog
+The changelog can be found [here](https://github.com/factor1/nifty-nav-2/blob/master/CHANGELOG.md).
