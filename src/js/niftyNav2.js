@@ -8,6 +8,19 @@
 // eslint-disable-next-line
 import styles from '../scss/niftyNav2.scss';
 
+/* Object.entries polyfill */
+/* eslint-disable */
+if (!Object.entries)
+  Object.entries = function(obj) {
+    var ownProps = Object.keys(obj),
+      i = ownProps.length,
+      resArray = new Array(i); // preallocate the Array
+    while (i--)
+      resArray[i] = [ownProps[i], obj[ownProps[i]]];
+
+    return resArray;
+  };
+/* eslint-enable */
 
 /**
  * Default Options
