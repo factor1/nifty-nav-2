@@ -144,14 +144,14 @@ Current browser support as of **v0.1.0**.
 | Browser | Support | Notes |
 |---------|:-------:|-------|
 | Edge 16+ | ✅ |       |
-| Edge <= 15 | ❌ | [Issue #2](https://github.com/factor1/nifty-nav-2/issues/2) |
-| IE <= 11 | ❌ | [Issue #2](https://github.com/factor1/nifty-nav-2/issues/2) |
+| Edge <= 15 | ✅ |  |
+| IE <= 11 | ✅ |  |
 | Firefox 53+ | ✅ |       |
 | Firefox 52/51  | ⚠️ | [Issue #3](https://github.com/factor1/nifty-nav-2/issues/3) |
 | Chrome 51+ | ✅ |   |
 | Safari 11 | ✅ |    |
 | Safari 10.1 | ⚠️ | [Issue #3](https://github.com/factor1/nifty-nav-2/issues/3), [Issue #4](https://github.com/factor1/nifty-nav-2/issues/4) |
-| Safari 9.1 | ❌ | [Issue #2](https://github.com/factor1/nifty-nav-2/issues/2) |
+| Safari 9.1 | ✅ |  |
 | Mobile Safari iOS 10 | ⚠️ | [Issue #3](https://github.com/factor1/nifty-nav-2/issues/3), [Issue #4](https://github.com/factor1/nifty-nav-2/issues/4) |
 
 
