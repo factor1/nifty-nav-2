@@ -71,7 +71,7 @@ const buildPanel = (target, options) => {
 
   // Panel Top Offset Setting
   if( options.panelTopOffset !== 0 ) {
-    panel.style.cssText = `top: ${options.panelTopOffset}px`;
+    panel.style.cssText += `top: ${options.panelTopOffset}px`;
   }
 
   // Panel Origin Setting
@@ -79,17 +79,17 @@ const buildPanel = (target, options) => {
 
   // Panel Width Setting
   if( options.panelWidth !== '100%' ) {
-    panel.style.cssText = `width: ${options.panelWidth};`;
+    panel.style.cssText += `width: ${options.panelWidth};`;
   }
 
   // Panel Color
-  panel.style.cssText = `background-color: ${options.panelColor};`;
+  panel.style.cssText += `background-color: ${options.panelColor};`;
 
   // Panel Position Setting
-  panel.style.cssText = `position: ${options.panelPosition};`
+  panel.style.cssText += `position: ${options.panelPosition};`
 
   // Panel Animation Speed Setting
-  panel.style.cssText = `transition: all ${options.panelAnimationSpeed}ms ease-in-out;`;
+  panel.style.cssText += `transition: all ${options.panelAnimationSpeed}ms ease-in-out;`;
 
   // Set Panel State to Closed
   panel.classList.add('nifty-panel--closed');
@@ -147,19 +147,19 @@ const addMask = () => {
   const mask = document.createElement('div');
   mask.setAttribute('id', 'niftyMask');
   mask.setAttribute('class', 'nifty-mask');
-  mask.style.cssText = `background: ${options.maskColor}`;
+  mask.style.cssText += `background: ${options.maskColor}`;
 
   // if animations are disabled set transition to none
   if( options.panelAnimation === 'off' ) {
-    mask.style.cssText = 'transition: none;';
+    mask.style.cssText += 'transition: none;';
   } else {
     // set the transition for the mask
-    mask.style.cssText = `opacity: ${options.maskAnimationSpeed}ms ease-in-out`;
+    mask.style.cssText += `opacity: ${options.maskAnimationSpeed}ms ease-in-out`;
   }
 
   // showMask setting
   if( !options.showMask ) {
-    mask.style.cssText = 'opacity: 0;';
+    mask.style.cssText += 'opacity: 0;';
   }
 
   // add click listener
