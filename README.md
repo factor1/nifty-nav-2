@@ -152,7 +152,7 @@ Current browser support as of **v0.1.0**.
 | Safari 11 | ✅ |    |
 | Safari 10.1 | ⚠️ | [Issue #3](https://github.com/factor1/nifty-nav-2/issues/3), [Issue #4](https://github.com/factor1/nifty-nav-2/issues/4) |
 | Safari 9.1 | ❌ | [Issue #2](https://github.com/factor1/nifty-nav-2/issues/2) |
-| Mobile Safari iOS 10 | Issue #3](https://github.com/factor1/nifty-nav-2/issues/3), [Issue #4](https://github.com/factor1/nifty-nav-2/issues/4) |
+| Mobile Safari iOS 10 | ⚠️ | [Issue #3](https://github.com/factor1/nifty-nav-2/issues/3), [Issue #4](https://github.com/factor1/nifty-nav-2/issues/4) |
 
 
 ## ⚠️ Issues & Contributions

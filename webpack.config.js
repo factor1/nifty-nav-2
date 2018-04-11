@@ -6,6 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: [
+    'babel-polyfill',
     './src/js/niftyNav2.js'
   ],
   devtool: 'source-map',
