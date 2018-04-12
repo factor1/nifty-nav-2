@@ -38,11 +38,13 @@ from `node_modules` to your project.
 #### JavaScript
 How you include the Nifty Nav 2 JavaScript library is up to you and the architecture
 of your project. Nifty Nav 2 is available as a UMD module so it can be used as a
-AMD, Global, Node, or ES6 module.
+AMD, Global, Node, or ES6 module. The compiled JavaScript file found in `dist/` contains
+the `babel-polyfill` to ensure proper cross browser support.
 
 ##### Simple
 Copy the `niftyNav2.js` file in `nifty-nav-2/dist` to your project directory and include
-in your HTML.
+in your HTML. You do not need to include any polyfills, as they are bundled directly
+into `dist/niftyNav2.js`.
 
 ```html
 <html>
@@ -144,15 +146,12 @@ Current browser support as of **v0.1.0**.
 | Browser | Support | Notes |
 |---------|:-------:|-------|
 | Edge 16+ | ✅ |       |
-| Edge <= 15 | ❌ | [Issue #2](https://github.com/factor1/nifty-nav-2/issues/2) |
-| IE <= 11 | ❌ | [Issue #2](https://github.com/factor1/nifty-nav-2/issues/2) |
-| Firefox 53+ | ✅ |       |
-| Firefox 52/51  | ⚠️ | [Issue #3](https://github.com/factor1/nifty-nav-2/issues/3) |
+| Edge <= 15 | ✅ |  |
+| IE 11 | ✅ |  |
+| IE 10 | ⚠️ | May need CSS to adjust hamburger and menu text placement, core functionality is OK |
+| Firefox 51+ | ✅ |  |
 | Chrome 51+ | ✅ |   |
-| Safari 11 | ✅ |    |
-| Safari 10.1 | ⚠️ | [Issue #3](https://github.com/factor1/nifty-nav-2/issues/3), [Issue #4](https://github.com/factor1/nifty-nav-2/issues/4) |
-| Safari 9.1 | ❌ | [Issue #2](https://github.com/factor1/nifty-nav-2/issues/2) |
-| Mobile Safari iOS 10 | Issue #3](https://github.com/factor1/nifty-nav-2/issues/3), [Issue #4](https://github.com/factor1/nifty-nav-2/issues/4) |
+| Safari 9.1+ | ✅ |  |
 
 
 ## ⚠️ Issues & Contributions

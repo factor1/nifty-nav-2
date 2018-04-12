@@ -32,7 +32,6 @@
     "autoprefixer": "^8.0.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.10",
@@ -43,5 +42,8 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.2",
     "webpack": "^3.11.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
   }
 }
