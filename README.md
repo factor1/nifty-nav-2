@@ -38,11 +38,13 @@ from `node_modules` to your project.
 #### JavaScript
 How you include the Nifty Nav 2 JavaScript library is up to you and the architecture
 of your project. Nifty Nav 2 is available as a UMD module so it can be used as a
-AMD, Global, Node, or ES6 module.
+AMD, Global, Node, or ES6 module. The compiled JavaScript file found in `dist/` contains
+the `babel-polyfill` to ensure proper cross browser support.
 
 ##### Simple
 Copy the `niftyNav2.js` file in `nifty-nav-2/dist` to your project directory and include
-in your HTML.
+in your HTML. You do not need to include any polyfills, as they are bundled directly
+into `dist/niftyNav2.js`.
 
 ```html
 <html>
