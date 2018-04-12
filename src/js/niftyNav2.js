@@ -40,18 +40,32 @@ let options = {
 const buildIcons = (target, options) => {
 
   const icon = `
-    <button class="nifty-icon nifty-icon--${options.icon}">
-      <span style="background-color: ${options.iconColor}"></span>
-      <span style="background-color: ${options.iconColor}"></span>
-      <span style="background-color: ${options.iconColor}"></span>
+    <button class="nifty-button">
+      <div class="nifty-button__container">
+        <div class="nifty-icon nifty-icon--${options.icon}">
+          <span style="background-color: ${options.iconColor}"></span>
+          <span style="background-color: ${options.iconColor}"></span>
+          <span style="background-color: ${options.iconColor}"></span>
+        </div>
+      </div>
     </button>
   `;
   target.innerHTML = icon;
 
   // if we are showing menu text
   if( options.showMenuText === true ) {
-    target.querySelector('.nifty-icon').classList.add('nifty-icon--has-text');
-    target.querySelector('.nifty-icon').innerHTML = `<div class="nifty-icon--text" style="color: ${options.menuTextColor};">${options.menuText}</div><div><span style="background-color: ${options.iconColor}"></span><span style="background-color: ${options.iconColor}"></span><span style="background-color: ${options.iconColor}"></span></div>`;
+    target.querySelector('.nifty-button').innerHTML = `
+      <div class="nifty-button__container">
+        <div class="nifty-icon--text" style="color: ${options.menuTextColor};">
+          <span>${options.menuText}</span>
+        </div>
+        <div class="nifty-icon nifty-icon--${options.icon}">
+          <span style="background-color: ${options.iconColor}"></span>
+          <span style="background-color: ${options.iconColor}"></span>
+          <span style="background-color: ${options.iconColor}"></span>
+        </div>
+      </div>
+    `;
   }
 
 }
@@ -193,7 +207,8 @@ const addMask = () => {
 const handleTargetClick = (e) => {
   const panelId = e.target.parentElement.getAttribute('data-nifty-target');
 
-  e.target.classList.toggle('nifty-active');
+  const icon = e.target.querySelector('.nifty-icon');
+  icon.classList.toggle('nifty-active');
 
   togglePanel(panelId);
   toggleMask();
@@ -205,12 +220,11 @@ const handleTargetClick = (e) => {
  *
 **/
 const init = (settings) => {
-  // quit if browser not supported - TODO: test this actually works.
   // Detect not supported browsers (<=IE9)
   const browserNotSupported = document.all && !window.atob;
 
   if( browserNotSupported ) {
-    return console.error('%c [Nifty Nav 2]: Browser not supported. Please upgrade your browser.', 'color: #rgb(232, 141, 57)');
+    return console.error('[Nifty Nav 2]: Browser not supported. Please upgrade your browser.');
   }
 
   // get the defaults and user settings

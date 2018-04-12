@@ -145,14 +145,11 @@ Current browser support as of **v0.1.0**.
 |---------|:-------:|-------|
 | Edge 16+ | ✅ |       |
 | Edge <= 15 | ✅ |  |
-| IE <= 11 | ✅ |  |
-| Firefox 53+ | ✅ |       |
-| Firefox 52/51  | ⚠️ | [Issue #3](https://github.com/factor1/nifty-nav-2/issues/3) |
+| IE 11 | ✅ |  |
+| IE 10 | ⚠️ | May need CSS to adjust hamburger and menu text placement, core functionality is OK |
+| Firefox 51+ | ✅ |  |
 | Chrome 51+ | ✅ |   |
-| Safari 11 | ✅ |    |
-| Safari 10.1 | ⚠️ | [Issue #3](https://github.com/factor1/nifty-nav-2/issues/3), [Issue #4](https://github.com/factor1/nifty-nav-2/issues/4) |
-| Safari 9.1 | ✅ |  |
-| Mobile Safari iOS 10 | ⚠️ | [Issue #3](https://github.com/factor1/nifty-nav-2/issues/3), [Issue #4](https://github.com/factor1/nifty-nav-2/issues/4) |
+| Safari 9.1+ | ✅ |  |
 
 
 ## ⚠️ Issues & Contributions

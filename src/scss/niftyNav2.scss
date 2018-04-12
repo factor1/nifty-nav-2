@@ -9,19 +9,14 @@
 %burger {
   span {
     display: block;
-    position: absolute;
-    margin: 0;
+    position: relative;
     left: calc(50% - 20px);
-    height: 3px;
     width: 40px;
-    border-radius: 1px;
-    transition: all 200ms ease-in-out;
-    cursor: default;
-    &:nth-child(1) {
-      top: 18px;
-    }
-    &:nth-child(3) {
-      bottom: 18px;
+    height: 3px;
+    background-color: teal;
+    transition: all 200ms ease;
+    &:nth-child(2) {
+      margin: 8px 0;
     }
   }
 }
@@ -32,17 +27,24 @@
  * Icon Styles
  *
 **/
-.nifty-icon {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
+.nifty-button {
+  display: block;
   position: relative;
-  min-width: 60px;
-  min-height: 60px;
-  background: none;
-  border: none;
+  width: auto;
   appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  &__container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-content: center;
+    position: relative;
+    min-width: 60px;
+    width: auto;
+  }
   &:after { // 🤡 this after prevents the <span>(s) from being the click target 🤡
     content: '';
     display: block;
@@ -52,6 +54,17 @@
     width: 100%;
     height: 100%;
   }
+}
+
+.nifty-icon {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex: 0 1 auto;
+  height: 30px;
+  width: 60px;
 
   /**
    * Square Icon
@@ -77,28 +90,16 @@
   &.nifty-active {
     span {
       &:nth-child(1) {
-        top: 29px;
+        top: 11px;
         transform: rotate(45deg);
       }
       &:nth-child(2) {
         background-color: transparent !important;
       }
       &:nth-child(3) {
-        bottom: 28px;
+        bottom: 12px;
         transform: rotate(-45deg);
       }
-    }
-  }
-
-  /**
-   * Has Menu Text
-  **/
-  &--has-text {
-    span, span:before, span:after{
-      margin: 0;
-      left: initial;
-      left: unset;
-      right: 0;
     }
   }
 
@@ -106,9 +107,12 @@
    * Menu Text Container
   **/
   &--text {
-    display: inline-block;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    margin: 0 45px 0 0;
+    flex: 0 1 auto;
     font-size: 16px;
     text-transform: uppercase;
   }
