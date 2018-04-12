@@ -101,6 +101,13 @@
         transform: rotate(-45deg);
       }
     }
+    &.nifty-icon--rounded {
+      span {
+        &:nth-child(1) {
+          top: 13px;
+        }
+      }
+    }
   }
 
   /**
