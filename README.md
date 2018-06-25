@@ -127,7 +127,7 @@ There are plenty settings that can be used to customize Nifty Nav 2.
 | `iconColor` | Color to be applied to the icon | **string** | `#fff` |
 | `showMenuText` | Show or hide text next to the icon | **boolean** | `false` |
 | `menuText` | Text to appear when `showMenuText` is `true` | **string** | `Menu` |
-| `menuTextColor` | Color to be applied to `menuText` | **string ** | `#fff` |
+| `menuTextColor` | Color to be applied to `menuText` | **string** | `#fff` |
 | `panelOrigin` | Placement of where the Nifty Nav 2 panel will animate from | **string** - top, left, right | `top` |
 | `panelTopOffset` | Top offset for the panel | **integer** | `0` |
 | `panelPosition` | CSS positioning for the panel | **string** | `absolute` |

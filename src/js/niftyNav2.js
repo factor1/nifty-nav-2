@@ -96,6 +96,11 @@ const buildPanel = (target, options) => {
     panel.style.cssText += `width: ${options.panelWidth};`;
   }
 
+  // Panel Height Setting
+  if( options.panelHeight !== 'auto' ) {
+    panel.style.cssText += `height: ${options.panelHeight};`;
+  }
+
   // Panel Color
   panel.style.cssText += `background-color: ${options.panelColor};`;
 

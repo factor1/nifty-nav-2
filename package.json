@@ -1,6 +1,6 @@
 {
   "name": "nifty-nav-2",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A JavaScript menu framework",
   "main": "src/niftyNav2.js",
   "scripts": {
