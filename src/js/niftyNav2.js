@@ -122,10 +122,10 @@ const buildPanel = (target, options) => {
  * On Toggle - Fires a callback function when passed to togglePanel()
  *
 **/
-let onToggleCallback;
+let onToggleCallback = null;
 const onToggle = ( callback ) => {
   if( callback ) {
-    return onToggleCallback = callback;
+    onToggleCallback = callback;
   }
 };
 
