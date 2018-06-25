@@ -140,6 +140,15 @@ There are plenty settings that can be used to customize Nifty Nav 2.
 | `maskAnimationSpeed` | Speed at which the mask/overlay animates in | **integer** | `600` |
 | `maskColor` | Color to be applied to the mask/overlay | **string** | `rgba(0,0,0,0.5)` |
 
+## 🔌 API Methods
+There are a few API Methods available to you if you should need them.
+
+| Method | Description |
+|--------|-------------|
+| `togglePanel` | Toggles the panel when used |
+| `toggleMask` | Toggles the mask when used |
+| `onToggle` | Accepts a function that runs when `togglePanel` is fired |
+
 ## 🌎 Browser Support
 Current browser support as of **v0.1.0**.
 
