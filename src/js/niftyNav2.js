@@ -15,21 +15,21 @@ import styles from '../scss/niftyNav2.scss';
 let options = {
   icon: 'square', // icon style (square, rounded)
   iconColor: '#fff', // default icon color
-  showMenuText: false, // toggle text next to icon
+  maskAnimationSpeed: 600, // speed of the mask animation
+  maskColor: 'rgba(0,0,0,0.5)',
   menuText: 'Menu', // text to appear when showMenuText is true
   menuTextColor: '#fff', // menu text color
-  targets: ['niftyNav'], // targets can be an array so you can have multiple instances at a time <div data-nifty-target="niftyNav"></div>
-  panelOrigin: 'top',  // where the panel will animate or originate from (top/left/right)
-  panelTopOffset: 0, // top offset for the panel
-  panelPosition: 'absolute', // css position - absolute, relative, fixed, etc...
-  panelHeight: 'auto', // panel height
-  panelWidth: '100%', // panel width
   panelAnimation: 'slide-in', // type of panel animation (slide-in, fade-in, off)
   panelAnimationSpeed: 500, // speed of panel animation,
   panelColor: '#2d2d2d', // panel color
+  panelHeight: 'auto', // panel height
+  panelOrigin: 'top',  // where the panel will animate or originate from (top/left/right)
+  panelPosition: 'absolute', // css position - absolute, relative, fixed, etc...
+  panelTopOffset: 0, // top offset for the panel
+  panelWidth: '100%', // panel width
   showMask: true, // if there should be a mask covering page content,
-  maskAnimationSpeed: 600, // speed of the mask animation
-  maskColor: 'rgba(0,0,0,0.5)'
+  showMenuText: false, // toggle text next to icon
+  targets: ['niftyNav'] // targets can be an array so you can have multiple instances at a time <div data-nifty-target="niftyNav"></div>
 }
 
 /**
@@ -237,6 +237,19 @@ const handleTargetClick = (e) => {
 
 /**
  *
+ * Toggle All Icon States
+ *
+**/
+const toggleIcons = () => {
+  const icons = document.querySelectorAll('.nifty-icon');
+
+  icons.forEach( icon => {
+    icon.classList.toggle('nifty-active');
+  });
+}
+
+/**
+ *
  * Initialization of niftyNav2
  *
 **/
@@ -273,7 +286,8 @@ const init = (settings) => {
 **/
 module.exports = {
   init,
-  togglePanel,
+  onToggle,
+  toggleIcons,
   toggleMask,
-  onToggle
+  togglePanel
 }
