@@ -119,13 +119,29 @@ const buildPanel = (target, options) => {
 
 /**
  *
+ * On Toggle - Fires a callback function when passed to togglePanel()
+ *
+**/
+let onToggleCallback = null;
+const onToggle = ( callback ) => {
+  if( callback ) {
+    onToggleCallback = callback;
+  }
+};
+
+/**
+ *
  * Open/Close Panel
  *
 **/
-const togglePanel = (panelId) => {
+const togglePanel = (panelId, callback = onToggleCallback) => {
   const panel = document.getElementById(panelId);
 
   panel.classList.toggle('nifty-panel--open');
+
+  if( callback ) {
+    return callback();
+  }
 }
 
 /**
@@ -253,5 +269,6 @@ const init = (settings) => {
 module.exports = {
   init,
   togglePanel,
-  toggleMask
+  toggleMask,
+  onToggle
 }
