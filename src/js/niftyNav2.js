@@ -199,6 +199,7 @@ const addMask = () => {
 
   // add click listener
   mask.addEventListener('click', () => {
+
     toggleMask();
 
     // shut down all open nifty nav panels
@@ -243,7 +244,7 @@ const handleTargetClick = (e) => {
 const toggleIcons = () => {
   const icons = document.querySelectorAll('.nifty-icon');
 
-  icons.forEach( icon => {
+  icons.forEach( ( icon ) => {
     icon.classList.toggle('nifty-active');
   });
 }
