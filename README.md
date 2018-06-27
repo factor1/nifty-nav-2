@@ -143,11 +143,12 @@ There are plenty settings that can be used to customize Nifty Nav 2.
 ## 🔌 API Methods
 There are a few API Methods available to you if you should need them.
 
-| Method | Description |
-|--------|-------------|
-| `togglePanel` | Toggles the panel when used |
-| `toggleMask` | Toggles the mask when used |
-| `onToggle` | Accepts a function that runs when `togglePanel` is fired |
+| Method | Description | Accepts | Default |
+|--------|-------------|---------|---------|
+| `onToggle` | Accepts a function that runs when `togglePanel` is fired | x | x |
+| `toggleIcons` | Toggles the state of all icons | x | x |
+| `toggleMask` | Toggles the mask when used | x | x |
+| `togglePanel` | Toggles the panel when used | `panelId` which is generated from the `targets` options | none |
 
 ## 🌎 Browser Support
 Current browser support as of **v0.1.0**.
