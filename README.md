@@ -117,6 +117,21 @@ for `iconColor` and `panelColor`.
 </script>
 ```
 
+#### Other Notes
+There is currently no built-in support for submenu toggling. However, this can easily be added via a custom function.
+Here is one possible solution using jQuery and typical WordPress markup.
+
+```js
+jQuery( document ).ready(function( $ ) {
+  // Sub-menu toggling
+	$('.nav--mobile .menu-item-has-children > a').on('click', function(e) {
+		e.preventDefault();
+
+		$(this).siblings('.sub-menu').slideToggle();
+	});
+});
+```
+
 ## ⚙️ Settings
 There are plenty settings that can be used to customize Nifty Nav 2.
 
